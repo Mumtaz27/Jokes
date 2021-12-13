@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div class="form-group">
+  <label for="category" id = "category" class="control-label"> Select category/categories</label>
+
+  <div><input type="radio" name="category" value="Any" checked="checked" id="Any" class="control-label" checked="checked" /> Any</div>
+  <div>
+      <input type="radio" name="category" value="Custom" class="control-label" id="Custom"  checked="checked"/> Custom:
+      <input type="checkbox"  value="Programming" class="control-label"id="Programming" /> Programming
+      <input type="checkbox"  value="Misc" class="control-label"id="Misc" /> Misc
+      <input type="checkbox"  value="Dark" class="control-label" id="Dark" /> Dark
+      <input type="checkbox"  value="Pun" class="control-label" id="Pun" /> Pun
+      <input type="checkbox"  value="Spooky" class="control-label" id="Spooky" /> Spooky
+      <input type="checkbox"  value="Christmas" class="control-label" id="Christmas"/> Christmas
+  </div>
+  <div class="form-group">
+   <span id="urlBuilderUrl">"Accept",'application/json'</span>
+      <button class="btn_primary" onclick="make_ajax()">Get Joke</button>
+  </div>
+
+</div>
+
+<div id="put_joke_here">The joke will be here... okay?</div>
+<script>
+  var  baseURL='https://v2.jokeapi.dev';
+  var Anycatogery="Any";
+  var Customcatogery="Custom";
+  var tryItURL='Google.com';
+  var isValid = false;
+function make_ajax() {
+    const xhttp = new XMLHttpRequest();
+  //const str = JSON.stringify(xhttp, null, 4);
+  //console.log(str);
+    xhttp.onload = function() {
+    document.getElementById("put_joke_here").innerHTML = this.responseText;
+  //result.innerHTML = JSON.stringify(jsonResult, null, 2)
+  var isValid = false;
+            var cate = document.getElementsByName("category").forEach(function (el) {
+                if (!el.checked)
+                    return;
+                    if (el.value == "Any") {
+                    isValid = true;
+                    ["Programming", "Misc", "Dark", "Pun", "Spooky", "Christmas"].forEach(function (category) {
+                    document.getElementById(category).disabled = true;
+                    });
+          }
+            else {
+                    var isChecked = false;
+                    ["Programming", "Misc", "Dark", "Pun", "Spooky", "Christmas"].forEach(function (category) {
+                    document.getElementById("category").disabled = false;
+                    cel.disabled = false;
+
+                        if (cel.checked)
+
+                            isChecked = true;
+                    });
+
+                    if (isChecked)
+                        isValid = true;
+                }   
+            });
+              var queryParams = [];
+          }
+//SECTION categories
+var selectedCategories =Customcatogery;
+if(document.getElementById("category").checked)
+{
+    selectedCategories = [];
+    if(document.getElementById("Programming").checked)
+    {
+        selectedCategories.Programming;
+    }
+    if(document.getElementById("Misc").checked)
+    {
+        selectedCategories.Miscellaneous;
+    }
+    if(document.getElementById("Dark").checked)
+    {
+        selectedCategories.Dark;
+    }
+    if(document.getElementById("Pun").checked)
+    {
+        selectedCategories.Pun;
+    }
+    if(document.getElementById("Spooky").checked)
+    {
+        selectedCategories.Spooky;
+    }
+    if(document.getElementById("Christmas").checked)
+    {
+        selectedCategories.Christmas;
+    }
+
+    if(selectedCategories.length == 0)
+    {
+        selectedCategories.Customcatogery;
+    }
+    console.log(selectedCategories);
+  }
+   xhttp.open("GET", tryItURL);      
+  //get("ajax.aspx", { error: error , category: category,type:type,setup:setup,delivery:delivery,flags:flags,safe:safe,id:id,lang:lang } );
+   xhttp.send(); 
+}    
+</script>
