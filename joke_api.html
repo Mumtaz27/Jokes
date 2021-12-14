@@ -149,8 +149,7 @@
                 else {
                     var isChecked = false;
                     ["cat-cb1", "cat-cb2", "cat-cb3", "cat-cb4", "cat-cb5", "cat-cb6"].forEach(function (cat) {
-                        var cel = document.getElementById(cat);
-                        cel.disabled = false;
+                        var cel = document.getElementById(cat).cel.disabled = false;
 
                         if (cel.checked)
                             isChecked = true;

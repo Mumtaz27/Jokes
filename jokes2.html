@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <div class="form-group">
   <label for="category" id = "category" class="control-label"> Select category/categories</label>
 
@@ -24,17 +23,18 @@
   var  baseURL='https://v2.jokeapi.dev';
   var Anycatogery="Any";
   var Customcatogery="Custom";
-  var tryItURL='Google.com';
+  var tryItURL='https://Google.com';
   var isValid = false;
 function make_ajax() {
     const xhttp = new XMLHttpRequest();
-  //const str = JSON.stringify(xhttp, null, 4);
-  //console.log(str);
+    method = "GET",
+    url = "https://v2.jokeapi.dev/";
     xhttp.onload = function() {
     document.getElementById("put_joke_here").innerHTML = this.responseText;
-  //result.innerHTML = JSON.stringify(jsonResult, null, 2)
-  var isValid = false;
-            var cate = document.getElementsByName("category").forEach(function (el) {
+    //result.innerHTML = JSON.stringify(jsonResult, null, 2)
+            var isValid = false;
+            //var cate = document.getElementById("category").value;
+            var any  = document.getElementByName("Any"). forEach(function (el) {
                 if (!el.checked)
                     return;
                     if (el.value == "Any") {
@@ -94,10 +94,14 @@ if(document.getElementById("category").checked)
     {
         selectedCategories.Customcatogery;
     }
-    console.log(selectedCategories);
+}
+   xhttp.open('GET', 'tryItURL',true);    
+   xhttp.onreadystatechange = function () {
+  if(xhttp.readyState === 4 && xhttp.status === 200) {
+    console.log(xhttp.responseText);
   }
-   xhttp.open("GET", tryItURL);      
-  //get("ajax.aspx", { error: error , category: category,type:type,setup:setup,delivery:delivery,flags:flags,safe:safe,id:id,lang:lang } );
-   xhttp.send(); 
-}    
+};
+   xhttp.send();
+   return xhttp;
+}
 </script>
