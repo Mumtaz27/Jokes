@@ -1,4 +1,11 @@
-<div class="form-group">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type ="text/javasctipt" src ="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
+</head>
+<body>
+<div >
   <label for="category" id = "category" class="control-label"> Select category/categories</label>
 
   <div><input type="radio" name="category" value="Any" checked="checked" id="Any" class="control-label" checked="checked" /> Any</div>
@@ -19,6 +26,7 @@
 </div>
 
 <div id="put_joke_here">The joke will be here... okay?</div>
+</body>
 <script>
   var  baseURL='https://v2.jokeapi.dev';
   var Anycatogery="Any";
@@ -34,7 +42,7 @@ function make_ajax() {
     //result.innerHTML = JSON.stringify(jsonResult, null, 2)
             var isValid = false;
             //var cate = document.getElementById("category").value;
-            var any  = document.getElementByName("Any"). forEach(function (el) {
+            var any  = document.getElementById("Any"). forEach(function (el) {
                 if (!el.checked)
                     return;
                     if (el.value == "Any") {
@@ -95,7 +103,7 @@ if(document.getElementById("category").checked)
         selectedCategories.Customcatogery;
     }
 }
-   xhttp.open('GET', 'tryItURL',true);    
+   xhttp.open('GET', 'https://v2.jokeapi.dev/joke/"Any,Programming,Misc,Dark,Pun,Spooky,Christmas"',true);    
    xhttp.onreadystatechange = function () {
   if(xhttp.readyState === 4 && xhttp.status === 200) {
     console.log(xhttp.responseText);
